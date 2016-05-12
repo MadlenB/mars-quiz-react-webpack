@@ -10,122 +10,77 @@ class App extends React.Component {
 
 	constructor(props){
 		super(props);
+		this.state = { page: "home" }
+		
+	}
 
-		this.state = {
-			todoList: [
-				{ title: 'placeholder todo', completed: false}
-			]
+	_navigate(page){
+		this.setState({ page });
+	}
+
+	_renderPage(){
+		switch(this.state.page){
+			case "home":
+			  return (<HomePage navigate={this._navigate.bind(this)}/>)
+			break;
+			case "begin":
+			 return (<BeginPage navigate={this._navigate.bind(this)}/>)
+			break;
+			case "test":
+			 return (<TestPage navigate={this._navigate.bind(this)}/>)
+			break;
 		}
-	}
-
-	_toggleComplete(theTodoToModify) {
-
-		let todoList = this.state.todoList.map((todo)=>{
-			if(theTodoToModify === todo) {
-				todo.completed = !todo.completed;
-			}
-			return todo;
-		});
-
-		this.setState({ todoList });
-	}
-
-	_removeTodo(theTodoToModify){
-		let todoList = this.state.todoList.filter((todo)=>{
-			if(theTodoToModify === todo) {
-				return false;
-			}
-			return todo;
-		});
-
-		this.setState({ todoList });
-	}
-
-	_addTodo(e){
-		e.preventDefault();
-		if(this.refs.todoTitle.value){
-			this.state.todoList.push({ title: this.refs.todoTitle.value, completed: false});
-			this.setState({ todoList: this.state.todoList });
-			this.refs.todoTitle.value = '';
-		}
-	}
-
-	_renderTodos(todo, index){
-		return (
-			<Todo 	key={index} 
-					todo={ todo } 
-					_removeTodo={this._removeTodo.bind(this)}
-					_toggleComplete={this._toggleComplete.bind(this)}
-			/>
-		)
-	}
-
-	_clearCompleted() {
-		let todoList = this.state.todoList.filter((todo, index)=>{
-			{/* remove any with completed: true */}
-			if(todo.completed) {
-				return false;
-			}
-			return true;
-		});
-		this.setState({ todoList })
-	}
-
-	_hasCompleted(){
-		let completed = this.state.todoList.filter((todo, index)=>{
-			if(todo.completed){
-				return true;
-			}
-			return false;
-		});
-		return completed.length;
 	}
 
 	render() {
 		return (
-			<div className="todo-app">
-				<h1>Todo List!</h1>
-				<div className="add-todo">
-					<form name="addTodo" onSubmit={this._addTodo.bind(this)}>
-						<input type='text' ref="todoTitle"/>
-					</form>
-				</div>
-				<ul>
-					{ this.state.todoList.map(this._renderTodos.bind(this)) }
-				</ul>
-				{ this._hasCompleted() ?<button onClick={this._clearCompleted.bind(this)}>Clear completed</button> : ''}
-				{this.state.todoList.length}&nbsp;
-				{this.state.todoList.length === 1 ? 'todo' : 'todos'}
+			<div className="mars-app">
+				{this._renderPage()}
 			</div>
-			)
-	}
-}
-
-class Todo extends React.Component {
-
-	_toggleComplete() {
-		this.props._toggleComplete(this.props.todo);
-	}
-
-	_removeTodo() {
-		this.props._removeTodo(this.props.todo);
-	}
-
-	render(){
-		return (
-			<li> 
-				{ this.props.todo.title } 
-				<input 	type="checkbox" 
-						defaultValue={this.props.todo.completed}
-						onClick={ this._toggleComplete.bind(this) }
-				/>
-				<button onClick={ this._removeTodo.bind(this) }>
-					Delete
-				</button>
-			</li>
 		)
 	}
 }
+
+class HomePage extends React.Component {
+	_beginTest(){
+		this.props.navigate("begin")
+	}
+	render(){
+		return (
+			<div>
+				<button onClick={this._beginTest.bind(this)}>take test</button>
+			</div>
+		)
+	}
+}
+
+class BeginPage extends React.Component {
+	_quiz(){
+		this.props.navigate("test")
+	}
+	render(){
+		return (
+			<div>
+				<button onClick={this._quiz.bind(this)}>begin evaluation</button>
+			</div>
+		)
+	}
+}
+
+class TestPage extends React.Component {
+	render(){
+		return (
+			<div>
+				<p>According to an MIT study, there is a possibility that the first crews traveling to Mars will suffocate in 68 days. Does that affect your desire to participate?</p>
+				<form name="quizInput">
+					<input type='text' ref="quizInput"/>
+				</form>
+				<button>submit answer</button>
+			</div>
+		)
+	}
+}
+
 
 
 ReactDOM.render(<App/>, document.getElementById('mars-app'));
