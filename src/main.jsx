@@ -11,7 +11,7 @@ class App extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = { 
-			page: "home",
+			page: "home"
 		}
 		
 	}
@@ -23,14 +23,19 @@ class App extends React.Component {
 	_renderPage(){
 		switch(this.state.page){
 			case "home":
-			  return (<HomePage navigate={this._navigate.bind(this)}/>)
+			 	return (<HomePage navigate={this._navigate.bind(this)}/>)
 			break;
 			case "begin":
-			 return (<BeginPage navigate={this._navigate.bind(this)}/>)
+				return (<BeginPage navigate={this._navigate.bind(this)}/>)
 			break;
 			case "test":
-			 return (<TestPage navigate={this._navigate.bind(this)}/>)
+				return (<TestPage navigate={this._navigate.bind(this)}/>)
 			break;
+			case "accepted":
+				return (<AcceptedPage navigate={this._navigate.bind(this)}/>)
+			break;
+			case "rejected":
+				return (<RejectedPage navigate={this._navigate.bind(this)}/>)
 		}
 	}
 
@@ -78,42 +83,54 @@ let friend = [
 	}, 
 
 	{
-		question: "sam",
+		question: "If you walked past the cockpit and noticed the controls of the spaceship left unattended, in how many parsecs do you think you could make the Kessel Run?",
 		answer: ""
 	}, 
 
 	{
-		question: "ann",
+		question: "On a scale of 1 to 10 (where 1 equals \“utter despair\" and 10 equals \“give me a volleyball, I’ll name it Wilson\") rate your ability to handle stress in survival situations.",
 		answer: ""
 	}
 ]
 
-	var Timer = React.createClass({
+class Timer extends React.Component {
+	constructor(props){
+		super(props);
+		this.state = {
+			secondsElapsed: 38
+		}
+	}
+  	_tick() {
+  		this.setState({secondsElapsed: this.state.secondsElapsed - 1});
+  	}
+  	_renderMinutes() {
+  		let minutes = Math.floor(this.state.secondsElapsed / 60);
+  		let seconds = this.state.secondsElapsed % 60;
+  		seconds = seconds < 10 ? '0' + seconds : seconds;
+  		return (<div>{minutes}:{seconds}</div>)
+  	}
+	_rejected(){
+		this.props.navigate("rejected")
+	}
+    componentDidMount() {
+    	this.interval = setInterval(this._tick.bind(this), 1000);
+    }
+    componentDidUpdate(prevProps, prevState) {
 
-	  getInitialState: function() {
-	    return {secondsElapsed: 3};
-	  },
-	  tick: function() {
-	    this.setState({secondsElapsed: this.state.secondsElapsed - 1});
-	  },
-	  componentDidMount: function() {
-	    this.interval = setInterval(this.tick, 1000);
-	  },
-	  componentDidUpdate(prevProps, prevState) {
-		if( this.state.secondsElapsed === 0 ) {clearInterval(this.interval);} 
-		
-	  },
-	  componentWillUnmount: function() {
-	    clearInterval(this.interval);
-	  },
-	  render: function() {
-	    return (
-	      <div>Seconds Elapsed: {this.state.secondsElapsed}</div>
-	    );
-	  }
-	});
-
-
+  		if( this.state.secondsElapsed === 0 ) {
+  			clearInterval(this.interval);
+  			this._rejected();
+  		}
+    }
+    componentWillUnmount() {
+    	clearInterval(this.interval);
+    }
+    render() {
+    	return (
+    	  <div>{this._renderMinutes()}</div>
+    	);
+    }
+}
 
 class TestPage extends React.Component {
 
@@ -125,12 +142,13 @@ class TestPage extends React.Component {
 	}
 
 _submitAnswer(){
+	if(this.state.correct === 3)
 	
 	if(this.refs.quizInput.value === "42"){
-		this.setState({ correct: this.state.correct + 1});
+		this.setState({ correct: this.state.correct += 1});
 	}
 
-	this.setState({ question: this.state.question + 1});
+	this.setState({ question: this.state.question += 1});
 
 	this.refs.quizInput.value = "";
 
@@ -143,7 +161,7 @@ _submitAnswer(){
 	render(){
 		return (
 			<div>
-				<Timer/>
+				<Timer navigate={this.props.navigate}/>
 				<p>{friend[this.state.question].question}</p>
 				<form name="quizInput">
 					<input type='text' ref="quizInput"/>
@@ -154,6 +172,30 @@ _submitAnswer(){
 	}
 }
 
+class AcceptedPage extends React.Component {
+	_quiz(){
+		this.props.navigate("test")
+	}
+	render(){
+		return (
+			<div>
+				<button onClick={this._quiz.bind(this)}>accepted</button>
+			</div>
+		)
+	}
+}
 
+class RejectedPage extends React.Component {
+	_quiz(){
+		this.props.navigate("test")
+	}
+	render(){
+		return (
+			<div>
+				<button onClick={this._quiz.bind(this)}>rejected</button>
+			</div>
+		)
+	}
+}
 
 ReactDOM.render(<App/>, document.getElementById('mars-app'));
