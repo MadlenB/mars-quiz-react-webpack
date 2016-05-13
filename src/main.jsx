@@ -10,7 +10,9 @@ class App extends React.Component {
 
 	constructor(props){
 		super(props);
-		this.state = { page: "home" }
+		this.state = { 
+			page: "home",
+		}
 		
 	}
 
@@ -67,15 +69,86 @@ class BeginPage extends React.Component {
 	}
 }
 
+
+
+let friend = [
+	{	
+		question: "According to an MIT study, there is a possibility that the first crews traveling to Mars will suffocate in 68 days. Does that affect your desire to participate?", 
+		answer: ""
+	}, 
+
+	{
+		question: "sam",
+		answer: ""
+	}, 
+
+	{
+		question: "ann",
+		answer: ""
+	}
+]
+
+	var Timer = React.createClass({
+
+	  getInitialState: function() {
+	    return {secondsElapsed: 3};
+	  },
+	  tick: function() {
+	    this.setState({secondsElapsed: this.state.secondsElapsed - 1});
+	  },
+	  componentDidMount: function() {
+	    this.interval = setInterval(this.tick, 1000);
+	  },
+	  componentDidUpdate(prevProps, prevState) {
+		if( this.state.secondsElapsed === 0 ) {clearInterval(this.interval);} 
+		
+	  },
+	  componentWillUnmount: function() {
+	    clearInterval(this.interval);
+	  },
+	  render: function() {
+	    return (
+	      <div>Seconds Elapsed: {this.state.secondsElapsed}</div>
+	    );
+	  }
+	});
+
+
+
 class TestPage extends React.Component {
+
+	constructor(props){
+		super(props);
+		this.state = { question: 0 , correct: 0}
+
+		
+	}
+
+_submitAnswer(){
+	
+	if(this.refs.quizInput.value === "42"){
+		this.setState({ correct: this.state.correct + 1});
+	}
+
+	this.setState({ question: this.state.question + 1});
+
+	this.refs.quizInput.value = "";
+
+
+	console.log(this.state);
+	console.log(this.refs.quizInput.value);
+}
+
+
 	render(){
 		return (
 			<div>
-				<p>According to an MIT study, there is a possibility that the first crews traveling to Mars will suffocate in 68 days. Does that affect your desire to participate?</p>
+				<Timer/>
+				<p>{friend[this.state.question].question}</p>
 				<form name="quizInput">
 					<input type='text' ref="quizInput"/>
 				</form>
-				<button>submit answer</button>
+				<button onClick={this._submitAnswer.bind(this)}>submit answer</button>
 			</div>
 		)
 	}
