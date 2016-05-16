@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-export default class Timer extends React.Component {
+export default class RetryTimer extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			secondsElapsed: 60
+			secondsElapsed: 8
 		}
 	}
   	_tick() {
@@ -16,8 +16,8 @@ export default class Timer extends React.Component {
   		seconds = seconds < 10 ? '0' + seconds : seconds;
   		return (<div>{minutes}:{seconds}</div>)
   	}
-	_rejected(){
-		this.props.navigate("rejected")
+	_Home(){
+		this.props.navigate("home")
 	}
     componentDidMount() {
     	this.interval = setInterval(this._tick.bind(this), 1000);
@@ -26,7 +26,7 @@ export default class Timer extends React.Component {
 
   		if( this.state.secondsElapsed === 0 ) {
   			clearInterval(this.interval);
-  			this._rejected();
+  			this._Home();
   		}
     }
     componentWillUnmount() {

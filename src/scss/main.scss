@@ -1,0 +1,225 @@
+
+@import 'reset';
+
+@import 'font-face';
+
+
+
+html, body {
+	// background-color: blue;
+	color: black;
+	display: flex;
+	// font-size: 60px;
+	width: 100vw;
+	// height: 100vw;
+	font-family: 'open_sansbold';
+
+}
+
+h1 {
+	color: #c2c2c2;
+	letter-spacing: -10px;
+    text-transform: uppercase;
+	font-size: 90px;
+}
+
+p {
+	font-family: 'open_sanslight';
+	color: #c2c2c2;
+	font-size: 28px;
+}
+
+header {
+	display: flex;
+	justify-content: center;
+	align-self: center;
+	width: 10vw;
+	color: #ffffff;
+	font-size: 100px;
+	// height: 100vh;
+	// flex-wrap: wrap;
+	// flex-direction: column;
+}
+
+header h1 {
+	position: absolute;
+	top: 110px;
+	left: 38px;
+	// font-weight: 900;
+	// padding: 30px;
+	// margin: 100px 0 0 0;
+    transform: translateX(-75px) rotate(270deg);
+}
+
+.planet {
+	letter-spacing: 0.5rem;
+	height: 120px;
+	width: 120px;
+	background-image: url('/build/assets/images/planet_mars.jpeg');
+	background-size: cover;
+	text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
+}
+
+.fa-space-shuttle {
+	position: relative;
+	top: 3px;
+	left: -12px;
+}
+
+.mars-app {
+	background-image: url('/build/assets/images/mars.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-size: 16px;
+	height: 100vh;
+	width: 90vw;
+	display:flex;
+	justify-content: center;
+}
+
+.flex {
+	align-self: center;
+}
+
+.button-container {
+	padding: 38px 0;
+}
+ 
+button {
+	outline: none;
+	background-color: #dbdbdb;
+	border-radius: 4px;
+	font-size: 20px;
+	padding: 24px 80px;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+}
+
+.quiz-box-wrapper {
+	width: 90vw;
+	text-align: left;
+}
+
+.quiz-box-container {
+	background-color: white;
+	margin: 80px;
+	padding: 40px 40px 0;
+	// width: 70vw;
+
+}
+
+// .clock-container {
+//     display: flex;
+//     justify-content: flex-end;
+//     width: 88vw;
+// }
+
+.clock {
+    background: #222;
+	color: lightgreen;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+	text-shadow: 0 0 2px lime, 0 0 8px rgba(0, 255, 0, 0.5), 0 0 10px rgba(0, 255, 0, 0.8);
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	border: 3px solid orange;
+	font-size: 80px;
+	border-radius: 6px;
+	width: 200px;
+	text-align: center;
+  animation-duration: 2s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 200px; 
+    text-align: left;
+    // padding: 0 0 0 12px;
+  }
+
+  75% {
+    font-size: 300%;
+    margin-left: 25%;
+    width: 280px;
+    // text-align: center;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 200px;
+    text-align: left;
+    padding: 0 0 0 16px;
+  }
+}
+
+
+.quiz-input {
+	height: 80px;
+    display: flex;
+    align-items: flex-end;
+}
+
+input {
+	font-family: 'open_sanslight';
+	font-size: 30px;
+	width: 100vw;
+	height: 30px;
+	outline: none;
+	border: none;
+	border-bottom: 1px solid black;
+}
+
+.button-container {
+	text-align: right;
+}
+
+.retry-timer {
+	display: none;
+}
+
+.accepted,
+.rejected {
+	opacity: 0;
+    animation: pulse 1s 3s 10;
+	background-color: #66CC88;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0;
+  }
+
+  25% {
+  	opacity: 1;
+  }
+
+  to {
+	opacity: 0;
+  }
+}
+
+.launch {
+	opacity: 0;
+	position: absolute;
+	font-size: 180px;
+	animation: launch 3s ease-in;
+	color: white;
+}
+
+@keyframes launch {
+  from {
+  	opacity: 1;
+	top: 110%;
+	font-size: 100px;
+	left: 50%;
+  }
+
+  to {
+  	opacity: 1;
+	top: -180%;
+	font-size: 600px;
+	left: 30%;
+  }
+}

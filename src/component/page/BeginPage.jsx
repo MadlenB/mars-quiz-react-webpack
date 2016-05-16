@@ -6,7 +6,7 @@ export default class BeginPage extends React.Component {
 	}
 	render(){
 		return (
-			<div>
+			<div className="flex">
 				<button onClick={this._quiz.bind(this)}>begin evaluation</button>
 			</div>
 		)

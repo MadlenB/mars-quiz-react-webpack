@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Timer from '../Timer';
 
-const friend = [
+const quizList = [
 	{	
 		question: "According to an MIT study, there is a possibility that the first crews traveling to Mars will suffocate in 68 days. Does that affect your desire to participate?", 
 		answer: ""
@@ -56,13 +56,23 @@ _submitAnswer(){
 	
 	render(){
 		return (
-			<div>
-				<Timer navigate={this.props.navigate}/>
-				<p>{friend[this.state.question].question}</p>
-				<form name="quizInput">
-					<input type='text' ref="quizInput"/>
-				</form>
-				<button onClick={this._submitAnswer.bind(this)}>submit answer</button>
+			<div className="test-page flex">
+				<div className="clock-container">
+					<div className="clock">
+						<Timer navigate={this.props.navigate}/>
+					</div>
+				</div>
+				<div className="quiz-box-wrapper">
+					<div className="quiz-box-container">
+						<p>{quizList[this.state.question].question}</p>
+						<form className="quiz-input">
+							<input type='text' ref="quizInput"/>
+						</form>
+						<div className="button-container">
+							<button onClick={this._submitAnswer.bind(this)}>submit answer</button>
+						</div>
+					</div>
+				</div>
 			</div>
 		)
 	}

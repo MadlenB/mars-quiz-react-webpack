@@ -1,4 +1,0 @@
-Todo List App (todo state)
-input field - on(enter)
-output display - CompletedCheck button (disable ClearList) , TrashCan button (remove this.display)
-display count - ClearCompleted button

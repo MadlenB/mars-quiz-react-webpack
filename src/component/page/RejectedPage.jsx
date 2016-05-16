@@ -1,4 +1,6 @@
 import * as React from 'react';
+import RetryTimer from '../RetryTimer';
+
 
 export default class RejectedPage extends React.Component {
 	_quiz(){
@@ -6,8 +8,11 @@ export default class RejectedPage extends React.Component {
 	}
 	render(){
 		return (
-			<div>
-				<button onClick={this._quiz.bind(this)}>rejected</button>
+			<div className="flex">
+				<div className="retry-timer">
+					<RetryTimer navigate={this.props.navigate}/>
+				</div>
+				<h1 className="rejected">rejected</h1>
 			</div>
 		)
 	}
