@@ -57,10 +57,8 @@ _submitAnswer(){
 	render(){
 		return (
 			<div className="test-page flex">
-				<div className="clock-container">
-					<div className="clock">
-						<Timer navigate={this.props.navigate}/>
-					</div>
+				<div className="clock">
+					<Timer navigate={this.props.navigate}/>
 				</div>
 				<div className="quiz-box-wrapper">
 					<div className="quiz-box-container">

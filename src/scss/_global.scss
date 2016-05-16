@@ -1,0 +1,24 @@
+// Global Style Start
+
+html, body {
+	color: black;
+	display: flex;
+	font-family: $bold;
+	width: 100vw;
+
+}
+
+h1 {
+	color: $text-col;
+	font-size: 90px;
+	letter-spacing: -10px;
+    text-transform: uppercase;
+}
+
+p {
+	color: $text-col;
+	font-family: $light;
+	font-size: 28px;
+}
+
+// Global Style End

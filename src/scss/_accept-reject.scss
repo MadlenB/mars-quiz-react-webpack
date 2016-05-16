@@ -1,0 +1,34 @@
+// AcceptedPage and RejectedPage Style Start
+
+.retry-timer {
+	display: none;
+}
+
+.ending {
+	align-items: center;
+	background-color: $ending-bak-col;
+	height: 100vh;
+	justify-content: center;
+	width: 100vw;
+}
+
+.accepted,
+.rejected {
+    animation: pulse 1s 4s infinite; // infinite crashes my webpack //
+	opacity: 0;
+}
+
+.rejected {
+	animation: pulse 1s 0s 10;
+}
+
+
+.launch {
+	animation: launch 6s ease-in;
+	color: $icon-font-col;
+	font-size: 180px;
+	opacity: 0;
+	position: absolute;
+}
+
+// AcceptedPage and RejectedPage Style End

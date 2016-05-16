@@ -1,0 +1,16 @@
+// var and Mixin Start
+
+$bold: 'open_sansbold';
+$ending-bak-col: #66CC88;
+$icon-font-col: #ffffff;
+$light: 'open_sanslight';
+$text-col: #c2c2c2;
+
+$tablet-width: 600px;
+@mixin tablet {
+  @media (min-width: $tablet-width) {
+    @content;
+  }
+}
+
+// var and Mixin End

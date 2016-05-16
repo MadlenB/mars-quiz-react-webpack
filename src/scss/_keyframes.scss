@@ -1,0 +1,54 @@
+// Keyframes Start
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    text-align: left;
+    width: 200px; 
+  }
+
+  25% {
+    font-size: 300%;
+    margin-left: 25%;
+    width: 280px;
+  }
+
+  to {
+    margin-left: 0%;
+    padding: 0 0 0 16px;
+    text-align: left;
+    width: 200px;
+  }
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0;
+  }
+
+  25% {
+  	opacity: 1;
+  }
+
+  to {
+	opacity: 0;
+  }
+}
+
+@keyframes launch {
+  from {
+	font-size: 100px;
+	left: 50%;
+  opacity: 1;
+  top: 110%;
+  }
+
+  to {
+  	opacity: 1;
+	top: -180%;
+	font-size: 600px;
+	left: 30%;
+  }
+}
+
+// Keyframes End

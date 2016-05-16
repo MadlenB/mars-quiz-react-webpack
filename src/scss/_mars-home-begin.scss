@@ -1,0 +1,37 @@
+// Mars-App HomePage and BeginPage Style Start
+
+.mars-app {
+	background-image: url('/build/assets/images/mars.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	display:flex;
+	font-size: 16px;
+	height: 100vh;
+	justify-content: center;
+	width: 100vw; // 90vw;
+
+	@include tablet {
+		width: 90vw;
+	}
+}
+
+.flex {
+	align-self: center;
+	display: flex;
+}
+
+.button-container {
+	padding: 38px 0;
+}
+ 
+button {
+	background-color: #dbdbdb;
+	border-radius: 4px;
+	font-size: 20px;
+	letter-spacing: -1px;
+	outline: none;
+	padding: 24px 80px;
+	text-transform: uppercase;
+}
+
+// Mars-App HomePage and BeginPage Style End
