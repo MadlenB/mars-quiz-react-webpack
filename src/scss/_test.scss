@@ -7,8 +7,9 @@
 
 .quiz-box-container {
 	background-color: white;
+	height: 260px;
 	margin: 80px;
-	padding: 40px 40px 0;
+	padding: 40px;
 }
 
 .clock {
@@ -32,6 +33,7 @@
     align-items: flex-end;
     display: flex;
 	height: 80px;
+	flex-wrap: wrap;
 }
 
 input {
@@ -45,6 +47,8 @@ input {
 }
 
 .button-container {
+	padding: 20px 0;
 	text-align: right;
+	width: 100vw;
 }
 // TestPage Style End

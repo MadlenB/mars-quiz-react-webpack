@@ -12,9 +12,13 @@
 	width: 100vw;
 }
 
+.lose {
+	background-color: $rejected-bak-col;
+}
+
 .accepted,
 .rejected {
-    animation: pulse 1s 4s infinite; // infinite crashes my webpack //
+    animation: pulse 1s 4s 10; // infinite crashes my webpack //
 	opacity: 0;
 }
 

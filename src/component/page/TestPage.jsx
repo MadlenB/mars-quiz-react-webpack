@@ -35,7 +35,8 @@ _rejected(){
 		this.props.navigate("rejected")
 	}
 
-_submitAnswer(){
+_submitAnswer(e){
+	e.preventDefault();
 	if(this.refs.quizInput.value === "42"){
 		this.setState({ correct: this.state.correct += 1});
 	}
@@ -53,6 +54,10 @@ _submitAnswer(){
 	this.refs.quizInput.value = "";
 
 } 
+
+componentDidMount() {
+    this.refs.quizInput.focus();  
+}
 	
 	render(){
 		return (
@@ -64,11 +69,11 @@ _submitAnswer(){
 					<div className="quiz-box-container">
 						<p>{quizList[this.state.question].question}</p>
 						<form className="quiz-input">
-							<input type='text' ref="quizInput"/>
+							<input type='text' ref="quizInput" />
+							<div className="button-container">
+								<button onClick={this._submitAnswer.bind(this)}>submit answer</button>
+							</div>
 						</form>
-						<div className="button-container">
-							<button onClick={this._submitAnswer.bind(this)}>submit answer</button>
-						</div>
 					</div>
 				</div>
 			</div>

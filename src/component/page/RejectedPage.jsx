@@ -8,7 +8,7 @@ export default class RejectedPage extends React.Component {
 	}
 	render(){
 		return (
-			<div className="flex ending">
+			<div className="flex ending lose">
 				<div className="retry-timer">
 					<RetryTimer navigate={this.props.navigate}/>
 				</div>

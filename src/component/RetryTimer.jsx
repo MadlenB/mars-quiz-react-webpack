@@ -4,7 +4,7 @@ export default class RetryTimer extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			secondsElapsed: 8
+			secondsElapsed: 18
 		}
 	}
   	_tick() {
