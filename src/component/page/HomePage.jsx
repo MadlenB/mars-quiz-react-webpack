@@ -6,9 +6,11 @@ export default class HomePage extends React.Component {
 	}
 	render(){
 		return (
+
 			<div className="flex">
 				<button onClick={this._beginTest.bind(this)}>take test</button>
 			</div>
+	
 		)
 	}
 }

@@ -1,15 +1,14 @@
 // Global Style Start
 
-html, body {
+.body-container {
 	color: black;
-	display: flex;
 	font-family: $bold;
 	width: 100vw;
-
-}
+	display: flex;
+}	
 
 h1 {
-	color: $text-col;
+	color: $header-text-col;
 	font-size: 90px;
 	letter-spacing: -10px;
     text-transform: uppercase;

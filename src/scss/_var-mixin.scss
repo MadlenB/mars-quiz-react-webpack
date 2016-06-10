@@ -5,9 +5,10 @@ $ending-bak-col: #66CC88;
 $icon-font-col: #ffffff;
 $light: 'open_sanslight';
 $rejected-bak-col: firebrick;
-$text-col: #c2c2c2;
+$header-text-col: #EDF1F2;
+$text-col: #969696;
 
-$tablet-width: 600px;
+$tablet-width: 640px;
 @mixin tablet {
   @media (min-width: $tablet-width) {
     @content;
