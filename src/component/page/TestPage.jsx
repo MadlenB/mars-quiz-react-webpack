@@ -42,15 +42,19 @@ _submitAnswer(e){
 	let userAnswer = this.refs.quizInput.value.toLowerCase();
 	let hostAnswer = quizList[this.state.question].answer.toLowerCase();
 
-	if(userAnswer === hostAnswer || this.refs.quizInput.value === "42"){
-		this.setState({ correct: this.state.correct += 1});
-	}
-	if(this.state.question === 2 && this.state.correct >= 2) {
-		// console.log("what the fuck!")
-		this._accepted();
-	}  else {
-		if(this.state.question === 2 && this.state.correct !== 3) {
-			this._rejected();
+	if( !$("input#answer").val().length ) {
+		return;
+	} else {
+		if(userAnswer === hostAnswer || this.refs.quizInput.value === "42"){
+			this.setState({ correct: this.state.correct += 1});
+		}
+		if(this.state.question === 2 && this.state.correct >= 2) {
+			// console.log("what the fuck!")
+			this._accepted();
+		}  else {
+			if(this.state.question === 2 && this.state.correct !== 3) {
+				this._rejected();
+			}
 		}
 	}
 
@@ -58,66 +62,12 @@ _submitAnswer(e){
 
 	this.refs.quizInput.value = "";
 
-	$(document).ready(function(){  
-
-      var checkField;
-
-      //checking the length of the value of message and assigning to a variable(checkField) on load
-      checkField = $("input#answer").val().length;  
-
-      var enableDisableButton = function(){         
-        if(checkField > 0){
-          $('#submitButton').removeAttr("disabled");
-        } 
-        else {
-          $('#submitButton').attr("disabled","disabled");
-        }
-      }        
-
-      //calling enableDisableButton() function on load
-      enableDisableButton();            
-
-      $('input#answer').keyup(function(){ 
-        //checking the length of the value of message and assigning to the variable(checkField) on keyup
-        checkField = $("input#answer").val().length;
-        //calling enableDisableButton() function on keyup
-        enableDisableButton();
-      });
-    });
-
 } 
 
 componentDidMount() {
+	
     this.refs.quizInput.focus();  
 
-
-
-    $(document).ready(function(){  
-
-      var checkField;
-
-      //checking the length of the value of message and assigning to a variable(checkField) on load
-      checkField = $("input#answer").val().length;  
-
-      var enableDisableButton = function(){         
-        if(checkField > 0){
-          $('#submitButton').removeAttr("disabled");
-        } 
-        else {
-          $('#submitButton').attr("disabled","disabled");
-        }
-      }        
-
-      //calling enableDisableButton() function on load
-      enableDisableButton();            
-
-      $('input#answer').keyup(function(){ 
-        //checking the length of the value of message and assigning to the variable(checkField) on keyup
-        checkField = $("input#answer").val().length;
-        //calling enableDisableButton() function on keyup
-        enableDisableButton();
-      });
-    });
 }
 	
 	render(){
