@@ -42,7 +42,7 @@ _submitAnswer(e){
 	let userAnswer = this.refs.quizInput.value.toLowerCase();
 	let hostAnswer = quizList[this.state.question].answer.toLowerCase();
 
-	if( !$("input#answer").val().length ) {
+	if( !$("input#answer").val().trim().length ) {
 		return;
 	} else {
 		if(userAnswer === hostAnswer || this.refs.quizInput.value === "42"){
@@ -65,7 +65,7 @@ _submitAnswer(e){
 } 
 
 componentDidMount() {
-	
+
     this.refs.quizInput.focus();  
 
 }
