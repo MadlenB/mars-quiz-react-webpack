@@ -2,22 +2,24 @@
 
 .body-container {
 	color: black;
-	font-family: $bold;
+	font-family: $font;
+	font-weight: bold;
 	width: 100vw;
 	display: flex;
 }	
 
 h1 {
 	color: $header-text-col;
-	font-size: 90px;
+	font-size: 5.1rem;
 	letter-spacing: -10px;
     text-transform: uppercase;
 }
 
 p {
 	color: $text-col;
-	font-family: $light;
+	font-family: $font;
 	font-size: 28px;
+	font-weight: lighter;
 	padding-bottom: 20px;
 }
 
