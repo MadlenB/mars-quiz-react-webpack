@@ -37,6 +37,7 @@ _rejected(){
 
 _submitAnswer(e){
 	e.preventDefault();
+	this.refs.quizInput.focus();
 	if(this.refs.quizInput.value === quizList[this.state.question].answer || this.refs.quizInput.value === "42"){
 		this.setState({ correct: this.state.correct += 1});
 	}
