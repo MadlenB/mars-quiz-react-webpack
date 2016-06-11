@@ -38,7 +38,11 @@ _rejected(){
 _submitAnswer(e){
 	e.preventDefault();
 	this.refs.quizInput.focus();
-	if(this.refs.quizInput.value === quizList[this.state.question].answer || this.refs.quizInput.value === "42"){
+
+	let userAnswer = this.refs.quizInput.value.toLowerCase();
+	let hostAnswer = quizList[this.state.question].answer.toLowerCase();
+	
+	if(userAnswer === hostAnswer || this.refs.quizInput.value === "42"){
 		this.setState({ correct: this.state.correct += 1});
 	}
 	if(this.state.question === 2 && this.state.correct >= 2) {
@@ -58,6 +62,35 @@ _submitAnswer(e){
 
 componentDidMount() {
     this.refs.quizInput.focus();  
+
+
+
+    $(document).ready(function(){  
+
+      var checkField;
+
+      //checking the length of the value of message and assigning to a variable(checkField) on load
+      checkField = $("input#answer").val().length;  
+
+      var enableDisableButton = function(){         
+        if(checkField > 0){
+          $('#submitButton').removeAttr("disabled");
+        } 
+        else {
+          $('#submitButton').attr("disabled","disabled");
+        }
+      }        
+
+      //calling enableDisableButton() function on load
+      enableDisableButton();            
+
+      $('input#answer').keyup(function(){ 
+        //checking the length of the value of message and assigning to the variable(checkField) on keyup
+        checkField = $("input#answer").val().length;
+        //calling enableDisableButton() function on keyup
+        enableDisableButton();
+      });
+    });
 }
 	
 	render(){
@@ -70,9 +103,9 @@ componentDidMount() {
 					<div className="quiz-box-container">
 						<p>{quizList[this.state.question].question}</p>
 						<form className="quiz-input">
-							<input type='text' ref="quizInput" />
+							<input id="answer" type='text' ref="quizInput" />
 							<div className="button-container">
-								<button onClick={this._submitAnswer.bind(this)}>submit answer</button>
+								<button id="submitButton" type="submit" onClick={this._submitAnswer.bind(this)}>submit answer</button>
 							</div>
 						</form>
 					</div>
