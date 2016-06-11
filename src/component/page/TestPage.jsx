@@ -4,17 +4,17 @@ import Timer from '../Timer';
 const quizList = [
 	{	
 		question: "According to an MIT study, there is a possibility that the first crews traveling to Mars will suffocate in 68 days. Does that affect your desire to participate?", 
-		answer: ""
+		answer: "no"
 	}, 
 
 	{
 		question: "If you walked past the cockpit and noticed the controls of the spaceship left unattended, in how many parsecs do you think you could make the Kessel Run?",
-		answer: ""
+		answer: "12"
 	}, 
 
 	{
 		question: "On a scale of 1 to 10 (where 1 equals \“utter despair\" and 10 equals \“give me a volleyball, I’ll name it Wilson\") rate your ability to handle stress in survival situations.",
-		answer: ""
+		answer: "10"
 	}
 ]
 
@@ -37,11 +37,11 @@ _rejected(){
 
 _submitAnswer(e){
 	e.preventDefault();
-	if(this.refs.quizInput.value === "42"){
+	if(this.refs.quizInput.value === quizList[this.state.question].answer || this.refs.quizInput.value === "42"){
 		this.setState({ correct: this.state.correct += 1});
 	}
 	if(this.state.question === 2 && this.state.correct >= 2) {
-		console.log("what the fuck!")
+		// console.log("what the fuck!")
 		this._accepted();
 	}  else {
 		if(this.state.question === 2 && this.state.correct !== 3) {
