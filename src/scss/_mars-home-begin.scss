@@ -1,6 +1,6 @@
 // Mars-App HomePage and BeginPage Style Start
 
-.mars-app {
+.mars-app-container {
 	background-image: url('/build/assets/images/mars.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -16,9 +16,15 @@
 	}
 }
 
+.mars-app {
+	width: 100%;
+	align-self: center;
+}
+
 .flex {
 	align-self: center;
 	display: flex;
+	justify-content: center;
 }
  
 button {

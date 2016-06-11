@@ -7,9 +7,12 @@
 
 .quiz-box-container {
 	background-color: white;
-	height: 260px;
+	height: 360px;
 	margin: 80px;
 	padding: 40px;
+	p {
+		height: 170px;
+	}
 }
 
 .clock {
