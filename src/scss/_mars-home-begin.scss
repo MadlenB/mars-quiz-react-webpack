@@ -33,7 +33,10 @@ button {
 	font-size: 20px;
 	letter-spacing: -1px;
 	outline: none;
-	padding: 24px 80px;
+	// padding: 24px 80px;
+	height: 70px;
+	min-width: 100px;
+	width: 260px;
 	text-transform: uppercase;
 }
 

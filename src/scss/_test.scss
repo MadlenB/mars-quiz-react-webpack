@@ -7,11 +7,11 @@
 
 .quiz-box-container {
 	background-color: white;
-	height: 360px;
+	// height: 360px;
 	margin: 80px;
 	padding: 40px;
 	p {
-		height: 170px;
+		// height: 170px;
 	}
 }
 
@@ -35,7 +35,7 @@
 .quiz-input {
     align-items: flex-end;
     display: flex;
-	height: 80px;
+	height: 105px;
 	flex-wrap: wrap;
 }
 
@@ -44,15 +44,14 @@ input {
 	border-bottom: 1px solid black;
 	font-family: $font;
 	font-size: 30px;
-	font-weight: lighter;
 	height: 30px;
 	outline: none;
-	width: 100vw;
+	width: 100%;
 }
 
 .button-container {
 	padding: 20px 0;
 	text-align: right;
-	width: 100vw;
+	width: 100%;
 }
 // TestPage Style End
