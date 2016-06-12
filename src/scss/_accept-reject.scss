@@ -18,7 +18,7 @@
 
 .accepted,
 .rejected {
-    animation: pulse 1s 4s 10; // infinite crashes my webpack //
+	animation: pulse 1s 4s 10; // infinite crashes my webpack //
 	opacity: 0;
 }
 

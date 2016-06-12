@@ -12,7 +12,6 @@ export default class App extends React.Component {
 		this.state = { 
 			page: "home"
 		}
-		
 	}
 
 	_navigate(page){

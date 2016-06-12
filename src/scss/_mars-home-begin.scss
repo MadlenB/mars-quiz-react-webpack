@@ -9,11 +9,6 @@
 	height: 100vh;
 	justify-content: center;
 	flex: 1 0 80%;
-	// width: 100vw; // 90vw;
-
-	@include tablet {
-		// width: 90vw;
-	}
 }
 
 .mars-app {
@@ -26,14 +21,14 @@
 	display: flex;
 	justify-content: center;
 }
- 
+
 button {
 	background-color: #dbdbdb;
 	border-radius: 4px;
 	font-size: 20px;
+	font-weight: 700;
 	letter-spacing: -1px;
 	outline: none;
-	// padding: 24px 80px;
 	height: 70px;
 	min-width: 100px;
 	width: 260px;

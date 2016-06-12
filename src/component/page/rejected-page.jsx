@@ -3,9 +3,11 @@ import RetryTimer from '../retry-timer';
 
 
 export default class RejectedPage extends React.Component {
+
 	_quiz(){
 		this.props.navigate("test")
 	}
+
 	render(){
 		return (
 			<div className="flex ending lose">
@@ -16,4 +18,5 @@ export default class RejectedPage extends React.Component {
 			</div>
 		)
 	}
+
 }
