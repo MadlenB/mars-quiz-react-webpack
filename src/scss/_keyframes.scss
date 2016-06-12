@@ -36,17 +36,15 @@
 
 @keyframes launch {
   from {
-	font-size: 100px;
-	left: 50%;
-  opacity: 1;
-  top: 110%;
+  	font-size: 6rem;
+    opacity: 1;
+    top: 110%;
   }
 
   to {
   	opacity: 1;
-	top: -180%;
-	font-size: 600px;
-	left: 20%;
+  	top: -180%;
+  	font-size: 48rem;
   }
 }
 
