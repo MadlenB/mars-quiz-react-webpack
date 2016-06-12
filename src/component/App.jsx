@@ -1,9 +1,9 @@
 import * as React from 'react';
-import HomePage from "./page/HomePage";
-import BeginPage from "./page/BeginPage";
-import TestPage from "./page/TestPage";
-import AcceptedPage  from "./page/AcceptedPage";
-import RejectedPage from "./page/RejectedPage";
+import HomePage from "./page/home-page";
+import BeginPage from "./page/begin-page";
+import TestPage from "./page/test-page";
+import AcceptedPage  from "./page/accepted-page";
+import RejectedPage from "./page/rejected-page";
 
 export default class App extends React.Component {
 

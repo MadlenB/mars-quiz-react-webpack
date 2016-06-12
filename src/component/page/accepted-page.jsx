@@ -1,5 +1,5 @@
 import * as React from 'react';
-import RetryTimer from '../RetryTimer';
+import RetryTimer from '../retry-timer';
 
 export default class AcceptedPage extends React.Component {
 	_quiz(){
