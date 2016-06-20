@@ -1,6 +1,6 @@
 # Mars Quiz App - react.js
 
-Project 03 for RED Academy Front-End Web Development Professional Program
+Third Project for RED Academy - Full-time Front-End Web Development Professional
 
 ## Project Description
 
