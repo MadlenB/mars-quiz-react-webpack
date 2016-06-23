@@ -2,7 +2,7 @@
 
 Third Project for RED Academy - Full-time Front-End Web Development Professional
 
-## Project Description - mars-react.surge.sh
+## Project Description - http://mars-react.surge.sh
 
 Using React to built a single-page Mars quiz app.
 
