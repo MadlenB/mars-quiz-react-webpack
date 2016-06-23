@@ -1,12 +1,12 @@
-# Mars Quiz App
+# Mars Quiz App - react.js
 
-Project 03 for RED Academy Front-End Web Development Professional Program
+Third Project for RED Academy - Full-time Front-End Web Development Professional
 
 ## Project Description - mars-react.surge.sh
 
 Using React to built a single-page Mars quiz app.
 
-## Tools Used to Build this site
+## The Tools:
 
 1. React
 2. JSX 
